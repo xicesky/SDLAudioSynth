@@ -15,7 +15,7 @@ VTable vt_beat = {
 Instrument instr[VOICES] = {
     // Attack, Decay, Signal, Volume, ModSingal, ModFreq, ModAmount
     { 410, 17640, SIGNAL_SAW, 256, SIGNAL_SIN, 10240, 128 },//    { 410, 8820, SIGNAL_SAW, 256 },
-    { 410, 22000, SIGNAL_RECT, 256, SIGNAL_ZERO, 1024, 1024 },
+    { 410, 22000, SIGNAL_RECT, 320, SIGNAL_ZERO, 1024, 1024 },
     { 41, 2210, SIGNAL_NOISE, 512, SIGNAL_ZERO, 0, 0 },
     { 410, 600, SIGNAL_RECT, 1024, SIGNAL_ZERO, 0, 0 }
 };

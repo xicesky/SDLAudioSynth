@@ -21,7 +21,7 @@ int samplesPerBeat;
 
 int beatCounter = 0;
 int vt_beat_i = 0;
-int initialWait = SAMPLE_RATE >> 3;
+int initialWait = SAMPLE_RATE >> 2;
 
 void voiceNote(Voice *v, Instrument *i, int note) {
 #ifdef DEBUG
@@ -73,7 +73,6 @@ void produceBeat() {
 }
 
 short int produceSample() {
-    int i;
     int y = 0;
 
     if (initialWait > 0) {
@@ -112,13 +111,15 @@ int main(int argc, char *argv[])
 
     if (!AUDIOIO_init(SAMPLE_RATE, produceSample))
         exit(1);
-
+/*
     AUDIOIO_setAudioActive(1);
 
     MessageBox(0, "You should hear sound now.\r\nPress ok to exit.\r\n", "SDL Audio test", MB_OK);
     //SDL_Delay(5000);
 
     AUDIOIO_setAudioActive(0);
+*/
+    AUDIOIO_mainLoop();
 
 //    printf("Samplecounter: %d", x);
     printf("Max Amplitude was: %d\n", max);

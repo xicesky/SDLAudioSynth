@@ -4,7 +4,8 @@
 
 # Targets (.c files have to exist)
 
-OBJS = main tables audioio voices
+#OBJS = main tables audioio voices
+OBJS = test signal array audioio
 
 
 # Libraries
@@ -18,7 +19,7 @@ GCC_MACHINEFLAGS=-mno-cygwin
 
 
 # C flags
-CFLAGS=-g -Wall -I./include
+CFLAGS=-g -std=c99 -Wall -I./include
 
 CPPFLAGS=
 CXXFLAGS=$(CPPFLAGS)
@@ -43,23 +44,23 @@ OBJFILES := $(patsubst %,obj/%.o,$(OBJS))
 default: main
 
 obj/%.o: src/%.c
-		gcc $(GCC_MACHINEFLAGS) $(CFLAGS) -c -o $@ $<
+	gcc $(GCC_MACHINEFLAGS) $(CFLAGS) -c -o $@ $<
 
 test:
-		echo CFLAGS=\"$(CFLAGS)\"
+	echo CFLAGS=\"$(CFLAGS)\"
 
 #obj/main.o: src/main.c Makefile
-#		echo COMPILING: $@
-#		gcc $(GCC_MACHINEFLAGS) $(CFLAGS) -c -o $@ $<
+#	echo COMPILING: $@
+#	gcc $(GCC_MACHINEFLAGS) $(CFLAGS) -c -o $@ $<
 
 main: $(OBJFILES)
-#		echo LINKING: $^
-		gcc $(GCC_MACHINEFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ $^ $(LIBFLAGS)
+#	echo LINKING: $^
+	gcc $(GCC_MACHINEFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ $^ $(LIBFLAGS)
 
 runmain: main
-		./main
+	./main
 
 clean:
-		-@rm $(OBJFILES) >/dev/null 2>&1
-		-@rm main >/dev/null 2>&1
-		-@rm main.exe >/dev/null 2>&1
+	-@rm $(OBJFILES) >/dev/null 2>&1
+	-@rm main >/dev/null 2>&1
+	-@rm main.exe >/dev/null 2>&1
