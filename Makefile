@@ -14,8 +14,7 @@ LIBS := mingw32 SDLmain SDL
 
 
 # Machine dep. options
-
-GCC_MACHINEFLAGS=-mno-cygwin
+GCC_MACHINEFLAGS=
 
 
 # C flags
@@ -49,9 +48,9 @@ obj/%.o: src/%.c
 test:
 	echo CFLAGS=\"$(CFLAGS)\"
 
-#obj/main.o: src/main.c Makefile
-#	echo COMPILING: $@
-#	gcc $(GCC_MACHINEFLAGS) $(CFLAGS) -c -o $@ $<
+obj/main.o: src/main.c src/song.c
+		gcc $(GCC_MACHINEFLAGS) $(CFLAGS) -c -o $@ $<
+
 
 main: $(OBJFILES)
 #	echo LINKING: $^
