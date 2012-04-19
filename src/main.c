@@ -72,7 +72,7 @@ void produceBeat() {
     //melodyIndex = (melodyIndex + 1) % MELODY_LEN;
 }
 
-short int produceSample() {
+double produceSample() {
     int y = 0;
 
     if (initialWait > 0) {
@@ -93,7 +93,7 @@ short int produceSample() {
     if (y > max) max = y;
     if (-y > max) max = -y;
 
-    return y;
+    return ((double)y) / 32768.0;
 }
 
 int main(int argc, char *argv[])

@@ -4,8 +4,8 @@
 
 # Targets (.c files have to exist)
 
-#OBJS = main tables audioio voices
-OBJS = test signal array audioio
+OBJS = main tables audioio voices
+#OBJS = test signal array audioio
 
 
 # Libraries
